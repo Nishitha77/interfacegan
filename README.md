@@ -26,13 +26,6 @@ python edit.py \
 
 Before going into details, we would like to first introduce the two state-of-the-art GAN models used in this work, which are ProgressiveGAN (Karras *el al.*, ICLR 2018) and StyleGAN (Karras *et al.*, CVPR 2019). These two models achieve high-quality face synthesis by learning unconditional GANs. For more details about these two models, please refer to the original papers, as well as the official implementations.
 
-ProgressiveGAN:
-  [[Paper](https://arxiv.org/pdf/1710.10196.pdf)]
-  [[Code](https://github.com/tkarras/progressive_growing_of_gans)]
-
-StyleGAN:
-  [[Paper](https://arxiv.org/pdf/1812.04948.pdf)]
-  [[Code](https://github.com/NVlabs/stylegan)]
 
 ## Code Instruction
 
