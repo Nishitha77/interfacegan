@@ -1,19 +1,9 @@
 # InterFaceGAN - Interpreting the Latent Space of GANs for Semantic Face Editing
-
-![Python 3.7](https://img.shields.io/badge/python-3.7-green.svg?style=plastic)
-![pytorch 1.1.0](https://img.shields.io/badge/pytorch-1.1.0-green.svg?style=plastic)
-![TensorFlow 1.12.2](https://img.shields.io/badge/tensorflow-1.12.2-green.svg?style=plastic)
-![sklearn 0.21.2](https://img.shields.io/badge/sklearn-0.21.2-green.svg?style=plastic)
-
 ![image](./docs/assets/teaser.jpg)
 **Figure:** *High-quality facial attributes editing results with InterFaceGAN.*
 
 In this repository, we propose an approach, termed as InterFaceGAN, for semantic face editing. Specifically, InterFaceGAN is capable of turning an unconditionally trained face synthesis model to controllable GAN by interpreting the very first latent space and finding the hidden semantic subspaces.
 
-[[Paper (CVPR)](https://arxiv.org/pdf/1907.10786.pdf)]
-[[Paper (TPAMI)](https://arxiv.org/pdf/2005.09635.pdf)]
-[[Project Page](https://genforce.github.io/interfacegan/)]
-[[Demo](https://www.youtube.com/watch?v=uoftpl3Bj6w)]
 [[Colab](https://colab.research.google.com/github/genforce/interfacegan/blob/master/docs/InterFaceGAN.ipynb)]
 
 ## How to Use
@@ -175,22 +165,3 @@ We provided following boundaries in folder `boundaries/`. The boundaries can be 
     - `stylegan_ffhq_gender_w_boundary.npy`: Gender.
     - `stylegan_ffhq_eyeglasses_w_boundary.npy`: Eyeglasses.
 
-## BibTeX
-
-```bibtex
-@inproceedings{shen2020interpreting,
-  title     = {Interpreting the Latent Space of GANs for Semantic Face Editing},
-  author    = {Shen, Yujun and Gu, Jinjin and Tang, Xiaoou and Zhou, Bolei},
-  booktitle = {CVPR},
-  year      = {2020}
-}
-```
-
-```bibtex
-@article{shen2020interfacegan,
-  title   = {InterFaceGAN: Interpreting the Disentangled Face Representation Learned by GANs},
-  author  = {Shen, Yujun and Yang, Ceyuan and Tang, Xiaoou and Zhou, Bolei},
-  journal = {TPAMI},
-  year    = {2020}
-}
-```
