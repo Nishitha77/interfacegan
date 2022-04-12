@@ -29,34 +29,6 @@ Before going into details, we would like to first introduce the two state-of-the
 
 ## Code Instruction
 
-### Generative Models
-
-A GAN-based generative model basically maps the latent codes (commonly sampled from high-dimensional latent space, such as standart normal distribution) to photo-realistic images. Accordingly, a base class for generator, called `BaseGenerator`, is defined in `models/base_generator.py`. Basically, it should contains following member functions:
-
-- `build()`: Build a pytorch module.
-- `load()`: Load pre-trained weights.
-- `convert_tf_model()` (Optional): Convert pre-trained weights from tensorflow model.
-- `sample()`: Randomly sample latent codes. This function should specify what kind of distribution the latent code is subject to.
-- `preprocess()`: Function to preprocess the latent codes before feeding it into the generator.
-- `synthesize()`: Run the model to get synthesized results (or any other intermediate outputs).
-- `postprocess()`: Function to postprocess the outputs from generator to convert them to images.
-
-We have already provided following models in this repository:
-
-- ProgressiveGAN:
-  - A clone of official tensorflow implementation: `models/pggan_tf_official/`. This clone is only used for converting tensorflow pre-trained weights to pytorch ones. This conversion will be done automitally when the model is used for the first time. After that, tensorflow version is not used anymore.
-  - Pytorch implementation of official model (just for inference): `models/pggan_generator_model.py`.
-  - Generator class derived from `BaseGenerator`: `models/pggan_generator.py`.
-  - Please download the official released model trained on CelebA-HQ dataset and place it in folder `models/pretrain/`.
-- StyleGAN:
-  - A clone of official tensorflow implementation: `models/stylegan_tf_official/`. This clone is only used for converting tensorflow pre-trained weights to pytorch ones. This conversion will be done automitally when the model is used for the first time. After that, tensorflow version is not used anymore.
-  - Pytorch implementation of official model (just for inference): `models/stylegan_generator_model.py`.
-  - Generator class derived from `BaseGenerator`: `models/stylegan_generator.py`.
-  - Please download the official released models trained on CelebA-HQ dataset and FF-HQ dataset and place them in folder `models/pretrain/`.
-  - Support synthesizing images from $\mathcal{Z}$ space, $\mathcal{W}$ space, and extended $\mathcal{W}$ space (18x512).
-  - Set truncation trick and noise randomization trick in `models/model_settings.py`. Among them, `STYLEGAN_RANDOMIZE_NOISE` is highly recommended to set as `False`. `STYLEGAN_TRUNCATION_PSI = 0.7` and `STYLEGAN_TRUNCATION_LAYERS = 8` are inherited from official implementation. Users can customize their own models. NOTE: These three settings will NOT affect the pre-trained weights.
-- Customized model:
-  - Users can do experiments with their own models by easily deriving new class from `BaseGenerator`.
   - Before used, new model should be first registered in `MODEL_POOL` in file `models/model_settings.py`.
 
 ### Utility Functions
